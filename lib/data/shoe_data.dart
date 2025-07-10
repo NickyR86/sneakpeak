@@ -22,7 +22,7 @@ class ShoeModel {
 
 const List<ShoeModel> shoeList = [
   ShoeModel(
-    image: 'assets/images/shoe2.jpg',
+    image: 'assets/images/nike1.png',
     title: 'Air Max 270',
     price: '\$129.00',
     brand: 'Nike',
@@ -32,7 +32,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Red', 'Black', 'White'],
   ),
   ShoeModel(
-    image: 'assets/images/nike2.png',
+    image: 'assets/images/nike2.jpg',
     title: 'Air Force 1',
     price: '\$115.00',
     brand: 'Nike',
@@ -42,7 +42,7 @@ const List<ShoeModel> shoeList = [
     colors: ['White', 'Blue'],
   ),
   ShoeModel(
-    image: 'assets/images/nike3.png',
+    image: 'assets/images/nike3.jpg',
     title: 'Nike ZoomX',
     price: '\$120.00',
     brand: 'Nike',
@@ -52,7 +52,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Black', 'Grey'],
   ),
   ShoeModel(
-    image: 'assets/images/nike4.png',
+    image: 'assets/images/nike3.jpg',
     title: 'Nike Revolution 6',
     price: '\$99.00',
     brand: 'Nike',
@@ -62,7 +62,7 @@ const List<ShoeModel> shoeList = [
     colors: ['White', 'Green'],
   ),
   ShoeModel(
-    image: 'assets/images/adidas1.png',
+    image: 'assets/images/nike3.jpg',
     title: 'Ultraboost 21',
     price: '\$139.00',
     brand: 'Adidas',

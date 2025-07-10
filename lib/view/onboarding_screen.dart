@@ -18,17 +18,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   final List<_OnboardingData> onboardingData = [
     _OnboardingData(
-      imagePath: 'assets/images/intro.png',
+      imagePath: 'assets/images/shoe.jpg',
       title: 'DISCOVER',
       description: 'Explore a wide range of sneakers from your favorite brands.',
     ),
     _OnboardingData(
-      imagePath: 'assets/images/intro1.png',
+      imagePath: 'assets/images/shoe.jpg',
       title: 'DELIVERY',
       description: 'Quick and safe delivery right to your doorstep.',
     ),
     _OnboardingData(
-      imagePath: 'assets/images/intro2.png',
+      imagePath: 'assets/images/shoe.jpg',
       title: 'STYLE',
       description: 'Step into the newest fashion trends with confidence.',
     ),
