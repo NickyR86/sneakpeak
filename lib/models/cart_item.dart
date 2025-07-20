@@ -1,13 +1,4 @@
-// import '../data/shoe_data.dart';
-
-// class CartItem {
-//   final ShoeModel shoe;
-//   int quantity;
-
-//   CartItem({required this.shoe, this.quantity = 1});
-// }
-
-import '../data/shoe_data.dart';
+import 'shoe_model.dart';
 
 class CartItem {
   final ShoeModel shoe;
@@ -21,4 +12,22 @@ class CartItem {
     required this.selectedSize,
     this.quantity = 1,
   });
+
+  factory CartItem.fromJson(Map<String, dynamic> json) {
+    return CartItem(
+      shoe: ShoeModel.fromJson(json['shoe']),
+      selectedColor: json['selectedColor'],
+      selectedSize: json['selectedSize'],
+      quantity: json['quantity'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'shoe': shoe.toJson(),
+      'selectedColor': selectedColor,
+      'selectedSize': selectedSize,
+      'quantity': quantity,
+    };
+  }
 }

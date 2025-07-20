@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../utils/app_textstyles.dart';
@@ -20,17 +21,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     _OnboardingData(
       imagePath: 'assets/images/shoe.jpg',
       title: 'DISCOVER',
-      description: 'Explore a wide range of sneakers from your favorite brands.',
+      description: 'Explore the latest sneaker trends from top global brands.',
     ),
     _OnboardingData(
-      imagePath: 'assets/images/shoe.jpg',
-      title: 'DELIVERY',
-      description: 'Quick and safe delivery right to your doorstep.',
+      imagePath: 'assets/images/shoe2.png',
+      title: 'CUSTOMIZE',
+      description: 'Find your perfect fit by filtering size, color, and style.',
     ),
     _OnboardingData(
-      imagePath: 'assets/images/shoe.jpg',
-      title: 'STYLE',
-      description: 'Step into the newest fashion trends with confidence.',
+      imagePath: 'assets/images/shoe3.png',
+      title: 'SHOP',
+      description: 'Enjoy a fast, secure, and seamless checkout experience.',
     ),
   ];
 
@@ -53,11 +54,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final primaryColor = Theme.of(context).colorScheme.primary;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+      ),
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        backgroundColor: Colors.white,
+        body: Column(
           children: [
+            // Gambar fullscreen di bagian atas
             SizedBox(
               height: screenHeight * 0.6,
               width: double.infinity,
@@ -78,6 +85,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
 
+            // Konten bawah
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -101,7 +109,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // Dot indicator
+                    // Dot indikator
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
@@ -123,7 +131,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                     const Spacer(),
 
-                    // Tombol utama (selalu berada di posisi yang sama)
+                    // Tombol utama
                     SizedBox(
                       width: double.infinity,
                       height: 50,
@@ -147,7 +155,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                     const SizedBox(height: 8),
 
-                    // Skip button hanya muncul sebelum halaman terakhir
                     if (_currentIndex < onboardingData.length - 1)
                       GestureDetector(
                         onTap: _completeOnboarding,

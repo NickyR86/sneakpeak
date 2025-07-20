@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../utils/app_textstyles.dart';
+import '../controllers/cart_controller.dart';
+import '../services/cart_storage.dart';
+import '../services/user_storage.dart';
+import 'home_screen.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});
@@ -8,16 +12,21 @@ class SuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).colorScheme.primary;
+    final cartController = Get.find<CartController>();
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-
-            // 🎯 Gambar
             Center(
               child: Image.asset(
                 'assets/images/shopbag.png',
@@ -27,8 +36,6 @@ class SuccessPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-
-            // 🟢 Judul
             Text(
               "SUCCESS !",
               style: AppTextStyle.h2.copyWith(
@@ -37,8 +44,6 @@ class SuccessPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-
-            // 📝 Subjudul
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
@@ -46,7 +51,7 @@ class SuccessPage extends StatelessWidget {
                   Text(
                     "Your Order Will Be Delivered Soon.",
                     style: AppTextStyle.bodyMedium.copyWith(
-                      color: const Color.fromARGB(255, 0, 0, 0),
+                      color: Colors.black87,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -54,37 +59,48 @@ class SuccessPage extends StatelessWidget {
                   Text(
                     "Thank You For Choosing Our App !",
                     style: AppTextStyle.bodyMedium.copyWith(
-                      color: const Color.fromARGB(255, 0, 0, 0),
+                      color: Colors.black87,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
-
             const Spacer(),
-
-            // 🛍️ Tombol Continue Shopping
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: ElevatedButton(
-                onPressed: () => Get.offAllNamed('/'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: primaryColor,
-                  minimumSize: const Size.fromHeight(48),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: Text(
-                  "CONTINUE SHOPPING",
-                  style: AppTextStyle.buttonMedium.copyWith(color: Colors.white),
-                ),
-              ),
-            ),
           ],
+        ),
+      ),
+
+      // ✅ Tombol di bagian bawah layar
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        child: ElevatedButton(
+          onPressed: () async {
+            cartController.clearCart();
+
+            final user = await UserStorage.getLoggedInUser();
+            if (user != null) {
+              await CartStorage.saveCartForUser(user.email, []); // ✅ Hapus cart file user
+            }
+
+            Get.offAll(() => const HomeScreen());
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: primaryColor,
+            minimumSize: const Size(double.infinity, 48),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          child: Text(
+            "CONTINUE SHOPPING",
+            style: AppTextStyle.buttonMedium.copyWith(color: Colors.white),
+          ),
         ),
       ),
     );
   }
 }
+
+
+

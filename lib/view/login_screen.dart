@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../utils/app_textstyles.dart';
+import '../services/user_storage.dart';
+import '../models/user_model.dart';
 import 'home_screen.dart';
 import 'signup_screen.dart';
 import 'forgot_password_screen.dart';
+import '../controllers/cart_controller.dart';
+import '../controllers/favorite_controller.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -87,14 +91,15 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
       },
       transitionBuilder: (context, anim1, _, child) {
         return SlideTransition(
-          position: Tween<Offset>(begin: const Offset(0, 0.4), end: Offset.zero).animate(CurvedAnimation(parent: anim1, curve: Curves.easeOut)),
+          position: Tween<Offset>(begin: const Offset(0, 0.4), end: Offset.zero)
+              .animate(CurvedAnimation(parent: anim1, curve: Curves.easeOut)),
           child: FadeTransition(opacity: anim1, child: child),
         );
       },
     );
   }
 
-  void _handleLogin() {
+  Future<void> _handleLogin() async {
     final username = _usernameController.text.trim();
     final password = _passwordController.text;
     final primaryColor = Theme.of(context).colorScheme.primary;
@@ -104,10 +109,18 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
       return;
     }
 
-    if (username == "user" && password == "password") {
+    final user = await UserStorage.getUserByUsername(username);
+
+    if (user != null && user.password == password) {
+      await UserStorage.saveLoggedInUser(user);
+
+      // Set user email ke controller cart & favorite
+      Get.find<CartController>().setUserEmail(user.email);
+      Get.find<FavoriteController>().setUserEmail(user.email);
+
       Get.snackbar(
         "Login Successful",
-        "Welcome back, $username!",
+        "Welcome back, ${user.username}!",
         snackPosition: SnackPosition.TOP,
         backgroundColor: primaryColor,
         colorText: Colors.white,
@@ -201,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                       ],
                     ),
                     TextButton(
-                      onPressed: () => Get.to(() => const ForgotPasswordScreen(), transition: Transition.fadeIn, duration: const Duration(milliseconds: 400)),
+                      onPressed: () => Get.to(() => const ForgotPasswordScreen(), transition: Transition.fadeIn),
                       child: Text("Forgot Password?", style: AppTextStyle.bodySmall.copyWith(color: primaryColor)),
                     ),
                   ],
@@ -241,3 +254,4 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
     );
   }
 }
+

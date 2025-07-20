@@ -1,24 +1,4 @@
-class ShoeModel {
-  final String image;
-  final String title;
-  final String price;
-  final String? description;
-  final String brand;
-  final double rating;
-  final List<int> sizes;
-  final List<String> colors;
-
-  const ShoeModel({
-    required this.image,
-    required this.title,
-    required this.price,
-    this.description,
-    required this.brand,
-    required this.rating,
-    required this.sizes,
-    required this.colors,
-  });
-}
+import '../models/shoe_model.dart';
 
 const List<ShoeModel> shoeList = [
   ShoeModel(
@@ -32,7 +12,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Red', 'Black', 'White'],
   ),
   ShoeModel(
-    image: 'assets/images/nike2.jpg',
+    image: 'assets/images/nike1.png',
     title: 'Air Force 1',
     price: '\$115.00',
     brand: 'Nike',
@@ -42,7 +22,7 @@ const List<ShoeModel> shoeList = [
     colors: ['White', 'Blue'],
   ),
   ShoeModel(
-    image: 'assets/images/nike3.jpg',
+    image: 'assets/images/nike1.png',
     title: 'Nike ZoomX',
     price: '\$120.00',
     brand: 'Nike',
@@ -52,7 +32,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Black', 'Grey'],
   ),
   ShoeModel(
-    image: 'assets/images/nike3.jpg',
+    image: 'assets/images/nike1.png',
     title: 'Nike Revolution 6',
     price: '\$99.00',
     brand: 'Nike',
@@ -61,8 +41,10 @@ const List<ShoeModel> shoeList = [
     sizes: [7, 8, 9, 10, 11],
     colors: ['White', 'Green'],
   ),
+
+  // Adidas
   ShoeModel(
-    image: 'assets/images/nike3.jpg',
+    image: 'assets/images/nike1.png',
     title: 'Ultraboost 21',
     price: '\$139.00',
     brand: 'Adidas',
@@ -72,7 +54,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Black', 'Grey', 'Green'],
   ),
   ShoeModel(
-    image: 'assets/images/adidas2.png',
+    image: 'assets/images/nike1.png',
     title: 'Adidas Superstar',
     price: '\$95.00',
     brand: 'Adidas',
@@ -82,7 +64,7 @@ const List<ShoeModel> shoeList = [
     colors: ['White', 'Black'],
   ),
   ShoeModel(
-    image: 'assets/images/adidas3.png',
+    image: 'assets/images/nike1.png',
     title: 'Adidas NMD R1',
     price: '\$130.00',
     brand: 'Adidas',
@@ -92,7 +74,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Red', 'Black'],
   ),
   ShoeModel(
-    image: 'assets/images/adidas4.png',
+    image: 'assets/images/nike1.png',
     title: 'Adidas Forum Low',
     price: '\$105.00',
     brand: 'Adidas',
@@ -101,8 +83,10 @@ const List<ShoeModel> shoeList = [
     sizes: [6, 8, 10, 11],
     colors: ['Blue', 'White'],
   ),
+
+  // Puma
   ShoeModel(
-    image: 'assets/images/puma1.png',
+    image: 'assets/images/nike1.png',
     title: 'RS-X3 Puzzle',
     price: '\$110.00',
     brand: 'Puma',
@@ -112,7 +96,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Pink', 'White'],
   ),
   ShoeModel(
-    image: 'assets/images/puma2.png',
+    image: 'assets/images/nike1.png',
     title: 'Puma Suede Classic',
     price: '\$75.00',
     brand: 'Puma',
@@ -122,7 +106,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Black', 'Grey'],
   ),
   ShoeModel(
-    image: 'assets/images/puma3.png',
+    image: 'assets/images/nike1.png',
     title: 'Puma Future Rider',
     price: '\$85.00',
     brand: 'Puma',
@@ -132,7 +116,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Blue', 'Red'],
   ),
   ShoeModel(
-    image: 'assets/images/puma4.png',
+    image: 'assets/images/nike1.png',
     title: 'Puma Cali Dream',
     price: '\$95.00',
     brand: 'Puma',
@@ -141,8 +125,10 @@ const List<ShoeModel> shoeList = [
     sizes: [7, 8, 9, 10],
     colors: ['White', 'Purple'],
   ),
+
+  // Reebok
   ShoeModel(
-    image: 'assets/images/reebok1.png',
+    image: 'assets/images/nike1.png',
     title: 'Club C 85',
     price: '\$80.00',
     brand: 'Reebok',
@@ -152,7 +138,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Black', 'White'],
   ),
   ShoeModel(
-    image: 'assets/images/reebok2.png',
+    image: 'assets/images/nike1.png',
     title: 'Reebok Nano X1',
     price: '\$130.00',
     brand: 'Reebok',
@@ -162,7 +148,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Blue', 'Black'],
   ),
   ShoeModel(
-    image: 'assets/images/reebok3.png',
+    image: 'assets/images/nike1.png',
     title: 'Reebok Classic Leather',
     price: '\$90.00',
     brand: 'Reebok',
@@ -172,7 +158,7 @@ const List<ShoeModel> shoeList = [
     colors: ['White', 'Grey'],
   ),
   ShoeModel(
-    image: 'assets/images/reebok4.png',
+    image: 'assets/images/nike1.png',
     title: 'Reebok Floatride Run',
     price: '\$125.00',
     brand: 'Reebok',
@@ -181,8 +167,10 @@ const List<ShoeModel> shoeList = [
     sizes: [6, 8, 10, 11],
     colors: ['Green', 'Black'],
   ),
+
+  // Skechers
   ShoeModel(
-    image: 'assets/images/skechers1.png',
+    image: 'assets/images/nike1.png',
     title: 'D\'Lites',
     price: '\$88.00',
     brand: 'Skechers',
@@ -192,7 +180,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Blue', 'White'],
   ),
   ShoeModel(
-    image: 'assets/images/skechers2.png',
+    image: 'assets/images/nike1.png',
     title: 'Skechers Go Walk',
     price: '\$70.00',
     brand: 'Skechers',
@@ -202,7 +190,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Black', 'Grey'],
   ),
   ShoeModel(
-    image: 'assets/images/skechers3.png',
+    image: 'assets/images/nike1.png',
     title: 'Skechers Max Cushioning',
     price: '\$100.00',
     brand: 'Skechers',
@@ -212,7 +200,7 @@ const List<ShoeModel> shoeList = [
     colors: ['White', 'Pink'],
   ),
   ShoeModel(
-    image: 'assets/images/skechers4.png',
+    image: 'assets/images/nike1.png',
     title: 'Skechers Flex Appeal',
     price: '\$82.00',
     brand: 'Skechers',
@@ -221,8 +209,10 @@ const List<ShoeModel> shoeList = [
     sizes: [7, 8, 9, 10],
     colors: ['Red', 'Blue'],
   ),
+
+  // Hummel
   ShoeModel(
-    image: 'assets/images/hummel1.png',
+    image: 'assets/images/nike1.png',
     title: 'Hummel Aerocharge HB200',
     price: '\$89.00',
     brand: 'Hummel',
@@ -232,7 +222,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Grey', 'Orange'],
   ),
   ShoeModel(
-    image: 'assets/images/hummel2.png',
+    image: 'assets/images/nike1.png',
     title: 'Hummel Crosslite',
     price: '\$75.00',
     brand: 'Hummel',
@@ -242,7 +232,7 @@ const List<ShoeModel> shoeList = [
     colors: ['White', 'Black'],
   ),
   ShoeModel(
-    image: 'assets/images/hummel3.png',
+    image: 'assets/images/nike1.png',
     title: 'Hummel Stadil Low',
     price: '\$80.00',
     brand: 'Hummel',
@@ -252,7 +242,7 @@ const List<ShoeModel> shoeList = [
     colors: ['Blue', 'White'],
   ),
   ShoeModel(
-    image: 'assets/images/hummel4.png',
+    image: 'assets/images/nike1.png',
     title: 'Hummel Reach LX6000',
     price: '\$95.00',
     brand: 'Hummel',

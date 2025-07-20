@@ -3,6 +3,8 @@ import 'home_page.dart';
 import 'cart_page.dart';
 import 'favorite_page.dart';
 import 'profile_page.dart';
+import '../utils/app_themes.dart';
+import '../utils/app_textstyles.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,21 +16,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  static final List<Widget> _pages = <Widget>[
-    const HomePage(),
-    const CartPage(),
-    const FavoritePage(),
-    const ProfilePage(),
-  ];
-
-  final List<String> _titles = [
-    'Home',
-    'Cart',
-    'Favorite',
-    'Profile',
+  final List<Widget> _pages = const [
+    HomePage(),
+    CartPage(),
+    FavoritePage(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
+    if (_selectedIndex == index) return;
     setState(() {
       _selectedIndex = index;
     });
@@ -36,21 +32,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = Theme.of(context).colorScheme.primary;
+    // Ambil warna utama dari tema
+    final Color primaryColor = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_titles[_selectedIndex]),
-        backgroundColor: primaryColor,
-        foregroundColor: Colors.white,
-        elevation: 2,
-        centerTitle: true,
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 250),
+        child: KeyedSubtree(
+          key: ValueKey<int>(_selectedIndex),
+          child: _pages[_selectedIndex],
+        ),
       ),
-      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: primaryColor, // gunakan langsung primary tanpa elevation
+        elevation: 0, // hilangkan efek terang dari elevation
         currentIndex: _selectedIndex,
-        selectedItemColor: primaryColor,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+        selectedLabelStyle: AppTextStyle.buttonMedium.copyWith(color: Colors.white),
+        unselectedLabelStyle: AppTextStyle.buttonSmall.copyWith(color: Colors.white70),
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
         items: const [
@@ -75,3 +75,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
