@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> brands = const ['All', 'Adidas', 'Nike', 'Puma', 'Reebok','Hummel'];
+  final List<String> brands = const ['All', 'Adidas', 'Nike', 'Puma', 'Reebok','Skechers','Hummel'];
   String selectedBrand = 'All';
 
   final PageController _bannerController = PageController();

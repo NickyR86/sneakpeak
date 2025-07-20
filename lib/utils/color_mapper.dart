@@ -9,6 +9,8 @@ class ColorMapper {
         return Colors.blue;
       case 'black':
         return Colors.black;
+      case 'yellow':
+        return Colors.yellow;
       case 'white':
         return Colors.white;
       case 'pink':
@@ -19,6 +21,10 @@ class ColorMapper {
         return Colors.green;
       case 'orange':
         return Colors.orange;
+      case 'purple':
+        return Colors.purple;
+      case 'brown':
+        return Colors.brown;
       default:
         return Colors.grey.shade400; // fallback/default color
     }
