@@ -115,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              user?.address ?? 'Alamat belum diatur',
+                              user?.address ?? 'Address not set',
                               style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.white70,

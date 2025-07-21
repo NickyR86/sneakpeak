@@ -2,8 +2,8 @@ class UserModel {
   final String username;
   final String email;
   final String password;
-  final String? phone;
-  final String? address;
+  final String phone;
+  final String address;
   final String gender;         
   final String imagePath;
 
@@ -12,8 +12,8 @@ class UserModel {
     required this.email,
     required this.password,
     required this.gender,      
-    this.phone,
-    this.address,
+    this.phone = 'Phone number not set',
+    this.address = 'Address not set',
     required this.imagePath,
   });
 
@@ -23,8 +23,8 @@ class UserModel {
       email: json['email'],
       password: json['password'],
       gender: json['gender'], 
-      phone: json['phone'],
-      address: json['address'],
+      phone: json['phone'] ?? 'Phone number not set',
+      address: json['address'] ?? 'Address not set',
       imagePath: json['imagePath'],
     );
   }

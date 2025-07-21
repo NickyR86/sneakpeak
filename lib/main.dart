@@ -30,7 +30,7 @@ void main() async {
 
   // ✅ HANYA untuk testing: reset agar onboarding muncul lagi
   // Hapus baris ini setelah selesai testing
-  box.remove('seenOnboarding');
+  //box.remove('seenOnboarding');
 
   // ✅ Inisialisasi controller global
   Get.put(ThemeController());

@@ -135,8 +135,6 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
         password: password,
         gender: selectedGender,
         imagePath: imagePath,
-        address: '',
-        phone: '',
       );
 
       await UserStorage.addUser(newUser);
