@@ -76,7 +76,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       Text("SHOPPING ADDRESS", style: AppTextStyle.bodySmall.copyWith(color: Colors.grey[700],
                         fontWeight: FontWeight.w600)),
                       const SizedBox(height: 8),
-                      Text(user?.username ?? '-', style: AppTextStyle.bodyLarge.copyWith(fontWeight: FontWeight.bold)),
+                      Text(user?.displayName ?? '-', style: AppTextStyle.bodyLarge.copyWith(fontWeight: FontWeight.bold)),
                       const SizedBox(height: 2),
                       Text(user?.phone ?? '-', style: AppTextStyle.bodySmall.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
                       const SizedBox(height: 4),

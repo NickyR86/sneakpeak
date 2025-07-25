@@ -131,6 +131,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
 
       final newUser = UserModel(
         username: username,
+        displayName: username,
         email: email,
         password: password,
         gender: selectedGender,

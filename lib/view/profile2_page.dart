@@ -29,6 +29,7 @@ class _Profile2PageState extends State<Profile2Page> {
     if (user != null) {
       setState(() {
         _currentUser = user;
+        _nameController.text = user.displayName;
         _nameController.text = user.username;
         _phoneController.text = user.phone ?? '';
         _selectedGender = user.gender;
@@ -101,7 +102,7 @@ class _Profile2PageState extends State<Profile2Page> {
 
     await UserStorage.updateUserProfile(
       email: _currentUser!.email,
-      newUsername: name,
+      newDisplayName: name,
       newPhone: phone,
       newImagePath: imagePath,
       newGender: _selectedGender,

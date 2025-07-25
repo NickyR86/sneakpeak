@@ -43,6 +43,7 @@ class UserStorage {
 
     final userWithDefaults = UserModel(
       username: newUser.username,
+      displayName: newUser.username,
       email: newUser.email,
       password: newUser.password,
       gender: newUser.gender,
@@ -114,6 +115,7 @@ class UserStorage {
   static Future<void> updateUserProfile({
     required String email,
     String? newUsername,
+    String? newDisplayName,
     String? newImagePath,
     String? newAddress,
     String? newPhone,
@@ -134,6 +136,7 @@ class UserStorage {
 
       final updatedUser = UserModel(
         username: newUsername ?? oldUser.username,
+        displayName: newDisplayName ?? oldUser.displayName,
         email: oldUser.email,
         password: oldUser.password,
         gender: newGender ?? oldUser.gender,                 // ✅ Update gender
